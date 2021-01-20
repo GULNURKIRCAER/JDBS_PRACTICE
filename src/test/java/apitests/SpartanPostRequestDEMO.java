@@ -72,12 +72,13 @@ public class SpartanPostRequestDEMO {
 
         //create spartan object and used as a body for post request
         Spartan spartan=new Spartan();
-        spartan.setName("MikePOJO");
+        spartan.setName("MikePOJOL");
         spartan.setGender("Male");
         spartan.setPhone(1324356789L);
 
-        Response response=given().accept(ContentType.JSON).
-                and().contentType(ContentType.JSON).
+        Response response=given().accept(ContentType.JSON)
+                .auth().basic("admin","admin")
+                .and().contentType(ContentType.JSON).
                 and().body(spartan).
                 when().post("/api/spartans/");
 
@@ -88,9 +89,10 @@ public class SpartanPostRequestDEMO {
 
         //==============GET REQUEST==============
 
-        Response response2= given().accept(ContentType.JSON).
-                and().pathParam("id",121).
-                and().when().get("/api/spartans/{id}");
+        Response response2= given().accept(ContentType.JSON)
+                .auth().basic("admin","admin")
+                .and().pathParam("id",168)
+                .and().when().get("/api/spartans/{id}");
 
         Spartan spartan1=response2.body().as(Spartan.class);
 

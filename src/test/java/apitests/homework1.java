@@ -105,6 +105,7 @@ public class homework1 {
             assertEquals(response.statusCode(),200);
 
             assertEquals(response.contentType(),"application/json");
+
             JsonPath jsonPath = response.jsonPath();
 
             List<String> job_id =jsonPath.getList("items.job_id");

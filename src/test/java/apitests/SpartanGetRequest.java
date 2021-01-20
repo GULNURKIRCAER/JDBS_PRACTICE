@@ -8,11 +8,13 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
 public class SpartanGetRequest {
-    String spartanurl = "http://52.90.239.48:8000";
+    String spartanurl = "http://18.212.69.4:8000";
 
     @Test
     public void test1(){
-        Response response = when().get(spartanurl+"/api/spartans");
+        Response response = given()
+                .auth().basic("admin","admin")
+                .when().get(spartanurl+"/api/spartans");
 
         System.out.println(response.getStatusCode());
 
@@ -27,7 +29,8 @@ public class SpartanGetRequest {
      */
     @Test
     public void test2(){
-        Response response = when().get(spartanurl+"/api/spartans/3");
+        Response response = given()
+                .auth().basic("admin","admin").when().get(spartanurl+"/api/spartans/3");
         //verify response status code is 200
         Assert.assertEquals(response.statusCode(),200);
         //System.out.println(response.contentType());
@@ -47,7 +50,8 @@ public class SpartanGetRequest {
         */
     @Test
     public void helloTest(){
-        Response response =when().get(spartanurl+"/api/hello");
+        Response response =given()
+                .auth().basic("admin","admin").when().get(spartanurl+"/api/hello");
 
         //verify status code
         Assert.assertEquals(response.getStatusCode(),200);

@@ -40,6 +40,7 @@ public class homework2 {
         @Test
         public void QA1(){
             Response response = given().accept(ContentType.JSON)
+                    .auth().basic("admin","admin")
                     .and().pathParam("id",20)
                     .when().get("/api/spartans/{id}");
 
@@ -88,6 +89,7 @@ public class homework2 {
         queryMap.put("nameContains","r");
 
         Response response = given().accept(ContentType.JSON)
+                .auth().basic("admin","admin")
                 .and().queryParams(queryMap)
                 .when().get("/api/spartans/search");
 

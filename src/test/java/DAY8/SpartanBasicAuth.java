@@ -16,7 +16,7 @@ public class SpartanBasicAuth {
                 .and()
                 .auth().basic("admin","admin")
                 .when()
-                .get("http://54.198.216.176:8000/api/spartans")
+                .get("http://18.212.69.4:8000/api/spartans")
                 .then().log().all()
                 .statusCode(200);
     }

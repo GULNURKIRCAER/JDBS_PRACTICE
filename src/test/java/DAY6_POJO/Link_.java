@@ -4,7 +4,7 @@ package DAY6_POJO;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Link_ {
+public class Link_ {//POJO CLASS
 
     @SerializedName("rel")
     @Expose

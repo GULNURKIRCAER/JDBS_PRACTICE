@@ -26,7 +26,7 @@ public class JsonSchemaValidationDemo {
                     .statusCode(200)
                     .and()
                     .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("SingleSpartanSchema.json"));
-            //dogru calsip calismadigi kontrol icin ID degistirmiyoruz.onun yerine SingleSpartanSchema.json
+            //dogru calisip calismadigi kontrol icin ID degistirmiyoruz.onun yerine SingleSpartanSchema.json
         //icine girip mesela gender da male female degistiriyoruz
         }
 }
